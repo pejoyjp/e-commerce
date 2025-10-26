@@ -6,6 +6,7 @@ import React from 'react'
 import { useDropdownPosition } from './use-dropdown-position'
 import SubcategoryMenu from './subcategory-menu'
 import { CustomCategory } from '../type'
+import Link from 'next/link'
 
 type Props = {
   category: CustomCategory;
@@ -30,6 +31,8 @@ const CategoryDropdown = ({ category, isActive, isNavigationHoverd }: Props) => 
 
   const downPosition  = getDropdownPosition()
 
+
+
   return (
     <div
       className="relative"
@@ -46,8 +49,10 @@ const CategoryDropdown = ({ category, isActive, isNavigationHoverd }: Props) => 
             isOpen && 'bg-white border-primary'
           )}
         >
-          
-          {category.name}
+          <Link href={`/${category.slug === "all" ? "" :category.slug }`}>
+              {category.name}
+          </Link>
+      
         </Button>
 
      
